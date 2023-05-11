@@ -3,6 +3,7 @@
   <head>
     <title>MessageMe</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -14,7 +15,8 @@
         <%= render 'layouts/nav' %>
       </div>
       <div class="twelve wide stretched column">
-        <div class="ui segment">
+        <div class="ui segment inverted">
+          <%= render 'layouts/messages' %>
           <%= yield %>
         </div>
       </div>

@@ -1,11 +1,66 @@
 @import "semantic-ui";
-@import 'semantic-ui/collections/menu';
-
+@import "semantic-ui/collections/menu";
 
 .main-section {
 	height: 100%;
-    margin: 0px !important;
+	margin: 0px !important;
 	.main-nav {
 		height: 100%;
+		display: flex !important;
+		flex-direction: column;
 	}
 }
+
+.sign-up {
+	margin-top: auto;
+	padding: 1em;
+}
+
+i.circular.icon {
+	outline: 2px solid rgba(255, 255, 255, 0.295);
+}
+
+.feed * {
+	color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.ui.raised.segment {
+	background-color: #292929;
+}
+
+.ui.inverted.feed {
+	overflow-y: scroll;
+	max-height: 70vh;
+}
+
+.home-page {
+	text-align: center;
+	height: 100%;
+	display: flex !important;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	h1.ui.header {
+		font-size: 5em;
+		font-weight: normal;
+		color: white;
+	}
+
+	p.ui.description {
+		font-size: 1.5em;
+		line-height: 1.5em;
+		margin: 25px 0;
+	}
+
+	button.ui.button {
+		font-size: 1.5em;
+		margin-top: 50px;
+	}
+}
+ .main-message-content{
+	display: flex !important;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+ }

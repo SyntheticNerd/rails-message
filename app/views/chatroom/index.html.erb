@@ -1,2 +1,34 @@
-<h1>Chatroom#index</h1>
-<p>Find me in app/views/chatroom/index.html.erb</p>
+<div class="ui inverted grid" style="height: 100%">
+  <div class="fourteen wide column main-message-content" style="height: 100%">
+    <h4 class="ui inverted center aligned icon header inverted">
+      <i class="circular chat icon"></i>
+      Say Something
+    </h4>
+    <%= render 'messages' %>
+    <%= form_with( model: @message,
+                    url: message_path, method: "post",
+                    data: {turbo: true, controller: :form, action: "turbo:submit-end->form#clear"},
+                    class: "ui inverted reply form message-form",
+                    id: "chat-form") do |f| %>
+      <div class="field">
+        <%= f.text_field :body, placeholder: "Say something", id: "chat-input" %>
+      </div>
+      <%= f.button class: "ui inverted black raised labeled submit icon button right floated", id: "message-submit-btn" do%>
+        <i class="icon edit"></i> Send
+      <% end %>
+    <% end %>
+  </div>
+  <div class="two wide column">
+    <div class="ui inverted vertical icon menu right floated">
+      <a class="item">
+        <i class="gamepad icon"></i>
+      </a>
+      <a class="item">
+        <i class="video camera icon"></i>
+      </a>
+      <a class="item">
+        <i class="video play icon"></i>
+      </a>
+    </div>
+  </div>
+</div>

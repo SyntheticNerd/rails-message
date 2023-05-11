@@ -1,0 +1,18 @@
+<div class="event">
+  <div class="content">
+    <div class="summary">
+      <%= message.user.username %>
+      <div class="date">
+        <%= time_ago_in_words(message.created_at) %>
+      </div>
+    </div>
+    <div class="extra text">
+      <%= message.body %>
+    </div>
+    <div class="meta">
+      <a class="like">
+        <i class="like icon"></i> 5 Likes
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,11 @@
-<div class="ui vertical fluid inverted menu main-nav ">
-  <a class="active item">
-    Bio
+<div class="ui vertical fluid inverted menu small main-nav ">
+  <a class="item">
+    Chatroom
   </a>
   <a class="item">
-    Pics
+    Friends
   </a>
-  <a class="item">
-    Companies
-  </a>
-  <a class="item">
-    Links
-  </a>
-  <div class="ui left pointing dropdown link item">
+  <div class="ui left pointing dropdown link item inverted">
     <i class="dropdown icon"></i>
     Messages
     <div class="menu">
@@ -19,9 +13,25 @@
       <div class="item">Starred</div>
       <div class="item">Sent Mail</div>
       <div class="item">Drafts (143)</div>
-      <div class="divider"></div>
-      <div class="item">Spam (1009)</div>
-      <div class="item">Trash</div>
     </div>
   </div>
+  <% if logged_in? %>
+    <%= link_to 'Logout', logout_path, data: { turbo_method: :delete}, class: "item", style: "margin-top: auto" %>
+  <% else %>
+    <%= form_with(scope: :session, url: login_path, method: "post", data: { turbo: false }, class: "ui form sign-up inverted") do |f| %>
+      <div class="field">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: "form-control", placeholder: "Enter Username" %>
+      </div>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control", placeholder: "Enter Password" %>
+      </div>
+      <div class="ui buttons">
+        <%= f.submit 'Login', class: "ui primary button" %>
+        <div class="or"></div>
+        <%= f.submit('Sign up', class: "ui button") %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
